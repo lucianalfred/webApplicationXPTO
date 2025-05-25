@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
-   
+    [Table("ActosClinico")]
     public class ActoClinico
     {
         [Key]
@@ -12,5 +12,10 @@ namespace Model
         public string? SubSistemaDeSaude { get; set; }
         public Profissional? Profissional { get; set; }
         public string? Observacoes { get; set; }
+        
+        public int PedidoDeMarcacaoId { get; set; } 
+        public PedidoDeMarcacao PedidoDeMarcacao { get; set; }
+
+
     }
 }

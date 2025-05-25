@@ -56,6 +56,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.15, )"
@@ -259,6 +267,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj": {
+                "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj"
+              },
               "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj": {
                 "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj"
               }
@@ -452,7 +463,14 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj": {
+                "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj"
+              },
+              "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj": {
+                "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -469,6 +487,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

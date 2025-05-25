@@ -1297,6 +1297,19 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
+      },
       "Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4373,6 +4386,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
+    },
     "Model/1.0.0": {
       "type": "project",
       "path": "../Model/Model.csproj",
@@ -4381,6 +4399,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "DTO >= 1.0.0",
       "Model >= 1.0.0"
     ]
   },
@@ -4409,6 +4428,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj"
+            },
             "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj": {
               "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj"
             }

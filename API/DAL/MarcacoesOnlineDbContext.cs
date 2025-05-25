@@ -24,7 +24,14 @@ namespace DAL
                 .WithMany()
                 .HasForeignKey(u => u.IdUsuario)
                 .OnDelete(DeleteBehavior.Restrict);
-        }
+
+            modelBuilder.Entity<PedidoDeMarcacao>()
+                .HasMany(p => p.ActosClinico)
+                .WithOne(a => a.PedidoDeMarcacao)
+                .HasForeignKey(a => a.PedidoDeMarcacaoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            }
         
     }
 }
