@@ -4390,11 +4390,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Interfaces/Interfaces.csproj",
+      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/Interfaces.csproj",
       "projectName": "Interfaces",
-      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Interfaces/Interfaces.csproj",
+      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/Interfaces.csproj",
       "packagesPath": "/home/luciano-alfredo/.nuget/packages/",
-      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Interfaces/obj/",
+      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/luciano-alfredo/.nuget/NuGet/NuGet.Config"
@@ -4409,8 +4409,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj"
             }
           }
         }

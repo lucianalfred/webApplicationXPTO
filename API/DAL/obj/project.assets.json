@@ -5659,11 +5659,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/DAL.csproj",
+      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DAL/DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/DAL.csproj",
+      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DAL/DAL.csproj",
       "packagesPath": "/home/luciano-alfredo/.nuget/packages/",
-      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/obj/",
+      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DAL/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/luciano-alfredo/.nuget/NuGet/NuGet.Config"
@@ -5678,11 +5678,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj"
             },
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Shared/Shared.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Shared/Shared.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Shared/Shared.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Shared/Shared.csproj"
             }
           }
         }

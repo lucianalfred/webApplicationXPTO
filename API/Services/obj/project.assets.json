@@ -6425,11 +6425,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Services/Services.csproj",
+      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Services/Services.csproj",
       "projectName": "Services",
-      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Services/Services.csproj",
+      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Services/Services.csproj",
       "packagesPath": "/home/luciano-alfredo/.nuget/packages/",
-      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Services/obj/",
+      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Services/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/luciano-alfredo/.nuget/NuGet/NuGet.Config"
@@ -6444,14 +6444,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/DAL.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/DAL.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DAL/DAL.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DAL/DAL.csproj"
             },
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DTO/DTO.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DTO/DTO.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj"
             },
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Interfaces/Interfaces.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Interfaces/Interfaces.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/Interfaces.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/Interfaces.csproj"
             }
           }
         }
@@ -6489,13 +6489,5 @@
         "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    }
-  ]
+  }
 }

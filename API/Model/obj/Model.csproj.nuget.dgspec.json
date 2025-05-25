@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj": {}
+    "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj": {}
   },
   "projects": {
-    "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj": {
+    "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj",
+        "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj",
         "projectName": "Model",
-        "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/Model.csproj",
+        "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/Model.csproj",
         "packagesPath": "/home/luciano-alfredo/.nuget/packages/",
-        "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Model/obj/",
+        "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Model/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/luciano-alfredo/.nuget/NuGet/NuGet.Config"

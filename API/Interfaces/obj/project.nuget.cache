@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xkFapMu4vzM=",
+  "dgSpecHash": "zqJ45ogVZE0=",
   "success": true,
-  "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Interfaces/Interfaces.csproj",
+  "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/Interfaces.csproj",
   "expectedPackageFiles": [
     "/home/luciano-alfredo/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.3.0/microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/microsoft.aspnetcore.authentication.core/2.3.0/microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",
