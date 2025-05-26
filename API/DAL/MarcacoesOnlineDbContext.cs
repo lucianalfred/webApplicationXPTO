@@ -9,6 +9,8 @@ namespace DAL
 
         public DbSet<UtenteRegistado> UtentesRegistados { get; set; }
         public DbSet<PedidoDeMarcacao> PedidosDeMarcacao { get; set; }
+        public DbSet<ActoClinico> ActosClinicos { get; set; }
+        public DbSet<Adminstractivo> Adminstractivos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
