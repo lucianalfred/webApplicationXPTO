@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0OrUwYEJAi0=",
+  "dgSpecHash": "2XP8h48ped4=",
   "success": true,
-  "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj",
+  "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DTO/DTO.csproj",
   "expectedPackageFiles": [
     "/home/luciano-alfredo/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.3.0/microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/microsoft.aspnetcore.authentication.core/2.3.0/microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",
@@ -80,5 +80,12 @@
     "/home/luciano-alfredo/.nuget/packages/system.xml.readerwriter/4.0.11/system.xml.readerwriter.4.0.11.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/system.xml.xdocument/4.0.11/system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

@@ -2191,6 +2191,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Interfaces": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.5",
           "Model": "1.0.0",
           "Shared": "1.0.0"
@@ -6275,11 +6276,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/API/API.csproj",
+      "projectUniqueName": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/API/API.csproj",
+      "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/API.csproj",
       "packagesPath": "/home/luciano-alfredo/.nuget/packages/",
-      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/API/obj/",
+      "outputPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/luciano-alfredo/.nuget/NuGet/NuGet.Config"
@@ -6294,20 +6295,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DAL/DAL.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DAL/DAL.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/DAL.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/DAL.csproj"
             },
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/DTO/DTO.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DTO/DTO.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DTO/DTO.csproj"
             },
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/Interfaces.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Interfaces/Interfaces.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Interfaces/Interfaces.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Interfaces/Interfaces.csproj"
             },
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Services/Services.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Services/Services.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/Services.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/Services.csproj"
             },
-            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Shared/Shared.csproj": {
-              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Shared/Shared.csproj"
+            "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Shared/Shared.csproj": {
+              "projectPath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Shared/Shared.csproj"
             }
           }
         }

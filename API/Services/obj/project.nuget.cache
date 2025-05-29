@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ty5gfGtqY1E=",
+  "dgSpecHash": "QrK4br2Pc2s=",
   "success": true,
-  "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto/API/Services/Services.csproj",
+  "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/Services.csproj",
   "expectedPackageFiles": [
     "/home/luciano-alfredo/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

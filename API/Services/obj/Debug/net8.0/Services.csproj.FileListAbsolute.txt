@@ -22,3 +22,12 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Services/obj/Debug/net8.0/refint/Services.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Services/obj/Debug/net8.0/Services.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/Services/obj/Debug/net8.0/ref/Services.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/refint/Services.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.pdb
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.csproj.AssemblyReference.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.GeneratedMSBuildEditorConfig.editorconfig
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.AssemblyInfoInputs.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.AssemblyInfo.cs
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.csproj.CoreCompileInputs.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/obj/Debug/net8.0/Services.sourcelink.json

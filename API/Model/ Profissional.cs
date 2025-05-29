@@ -6,7 +6,7 @@ namespace Model
     
     public class Profissional
     {
-         [Key]
+        [Key]
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Especialidade { get; set; }
