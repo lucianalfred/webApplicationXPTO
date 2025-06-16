@@ -1,0 +1,11 @@
+div {
+  max-width: 500px;
+  margin: auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+p {
+  margin: 10px 0;
+}
