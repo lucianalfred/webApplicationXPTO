@@ -1,8 +1,8 @@
 using DTO;
-using Interfaces;
+using Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
+namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -15,51 +15,62 @@ namespace API.Controllers
             _pedidoService = pedidoService;
         }
 
+        // GET: api/PedidoDeMarcacao
         [HttpGet]
-        public async Task<ActionResult<List<PedidoDeMarcacaoDTO>>> ObterTodos()
+        public IActionResult GetAll()
         {
-            var pedidos = await _pedidoService.ObterTodosAsync();
+            var pedidos = _pedidoService.GetAll();
             return Ok(pedidos);
         }
 
+        // GET: api/PedidoDeMarcacao/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PedidoDeMarcacaoDTO>> ObterPorId(int id)
+        public IActionResult GetById(int id)
         {
-            var pedido = await _pedidoService.ObterPorIdAsync(id);
+            var pedido = _pedidoService.GetById(id);
             if (pedido == null)
                 return NotFound();
 
             return Ok(pedido);
         }
 
+        // POST: api/PedidoDeMarcacao
         [HttpPost]
-        public async Task<ActionResult<PedidoDeMarcacaoDTO>> Criar([FromBody] PedidoDeMarcacaoDTO dto)
+        public IActionResult Create([FromBody] PedidoDeMarcacaoDTO pedidoDto)
         {
-            var novoPedido = await _pedidoService.CriarAsync(dto);
-            return CreatedAtAction(nameof(ObterPorId), new { id = novoPedido.Id }, novoPedido);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            bool result = _pedidoService.Save(pedidoDto);
+            if (!result)
+                return StatusCode(500, "Erro ao criar o pedido de marcação.");
+
+            return Ok(new { message = "Pedido de marcação criado com sucesso!" });
         }
 
+        // PUT: api/PedidoDeMarcacao/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Atualizar(int id, [FromBody] PedidoDeMarcacaoDTO dto)
+        public IActionResult Update(int id, [FromBody] PedidoDeMarcacaoDTO pedidoDto)
         {
-            if (id != dto.Id)
-                return BadRequest("ID do pedido não coincide com o corpo da requisição.");
+            if (id != pedidoDto.Id)
+                return BadRequest("ID do corpo e da URL não coincidem.");
 
-            var atualizado = await _pedidoService.AtualizarAsync(dto);
-            if (!atualizado)
-                return NotFound();
+            bool result = _pedidoService.Update(pedidoDto);
+            if (!result)
+                return NotFound("Pedido de marcação não encontrado para atualização.");
 
-            return NoContent();
+            return Ok(new { message = "Pedido de marcação atualizado com sucesso!" });
         }
 
+        // DELETE: api/PedidoDeMarcacao/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Remover(int id)
+        public IActionResult Delete(int id)
         {
-            var removido = await _pedidoService.RemoverAsync(id);
-            if (!removido)
-                return NotFound();
+            bool result = _pedidoService.Delete(id);
+            if (!result)
+                return NotFound("Pedido de marcação não encontrado para exclusão.");
 
-            return NoContent();
+            return Ok(new { message = "Pedido de marcação removido com sucesso!" });
         }
     }
 }
