@@ -8,13 +8,13 @@ namespace Model
     public class UtenteRegistado
     {
         [Key]
-        public int NumeroUtente { get; set; }
+        public int Id { get; set; }
 
         [ForeignKey("Uitlizadores")]
         public int IdUsuario { get; set; }
         public List<PedidoDeMarcacao> HistoricoDePedidoDeMarcacao { get; set; }
 
-        public Utilizador Utilizador { get; set; }
+        public Utilizador? Utilizador { get; set; }
     }
 
     

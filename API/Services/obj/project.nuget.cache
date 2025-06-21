@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QrK4br2Pc2s=",
+  "dgSpecHash": "xIT7gGBzuAA=",
   "success": true,
   "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/Services/Services.csproj",
   "expectedPackageFiles": [
@@ -124,5 +124,12 @@
     "/home/luciano-alfredo/.nuget/packages/system.xml.readerwriter/4.0.11/system.xml.readerwriter.4.0.11.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/system.xml.xdocument/4.0.11/system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

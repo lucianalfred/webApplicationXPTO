@@ -15,7 +15,7 @@ namespace Model
         public string Morada { get; set; }
         public string? UrlDaFotografia { get; set; }
         public Boolean EstadoDoUtilizador { get; set; }
-
+        public string TipoUtilizador { get; set; }
     }
 
 }

@@ -9,9 +9,9 @@ namespace DAL
 
         public DbSet<UtenteRegistado> UtentesRegistados { get; set; }
         public DbSet<PedidoDeMarcacao> PedidosDeMarcacao { get; set; }
-        public DbSet<ActoClinico> ActosClinicos { get; set; }
+        public DbSet<ActoClinico> ActosClinico { get; set; }
         public DbSet<Adminstractivo> Adminstractivos { get; set; }
-
+        public DbSet<Profissional> Profissionais { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -28,12 +28,12 @@ namespace DAL
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<PedidoDeMarcacao>()
-                .HasMany(p => p.ActosClinico)
-                .WithOne(a => a.PedidoDeMarcacao)
-                .HasForeignKey(a => a.PedidoDeMarcacaoId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            }
+                .HasOne(p => p.Utente)
+                .WithMany()
+                .HasForeignKey(p => p.UtenteId)
+                .OnDelete(DeleteBehavior.Restrict);
+   
+        }
         
     }
 }

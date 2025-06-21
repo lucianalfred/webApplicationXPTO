@@ -14,8 +14,7 @@ namespace Model
         public string? Observacoes { get; set; }
         
         public int PedidoDeMarcacaoId { get; set; } 
-        public PedidoDeMarcacao PedidoDeMarcacao { get; set; }
-
+ 
 
     }
 }
