@@ -15,6 +15,10 @@ builder.Services.AddDbContext<MarcacoesOnlineDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ClinicaConnection")));
 
 
+services.AddScoped<IUtilizadorRepository, UtilizadorRepository>();
+services.AddScoped<IUtilizadorService, UtilizadorService>();
+
+
 builder.Services.AddScoped<IActoClinicoRepository, ActoClinicoRepository>();
 builder.Services.AddScoped<IProfissionalRepository, ProfissionalRepository>();
 builder.Services.AddScoped<IPedidoDeMarcacaoRepository, PedidoDeMarcacaoRepository>();

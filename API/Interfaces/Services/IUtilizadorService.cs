@@ -1,4 +1,5 @@
 using DTO;
+using Model;
 
 namespace Interfaces.Services
 {
@@ -9,5 +10,6 @@ namespace Interfaces.Services
         Task<bool> CriarAsync(UtilizadorDTO utilizador);
         Task<bool> AtualizarAsync(UtilizadorDTO utilizador);
         Task<bool> RemoverAsync(int id);
+        Task<Utilizador> ObterPorEmailAsync(string email);
     }
 }

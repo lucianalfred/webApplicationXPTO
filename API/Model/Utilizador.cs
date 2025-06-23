@@ -3,6 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
+    public enum TipoUtilizador
+    {
+        ADMINISTRADOR,
+        UTENTE,
+        ADMINISTRATIVO
+    }
+
     [Table("Utilizadores")]
     public class Utilizador
     {
@@ -15,7 +22,7 @@ namespace Model
         public string Morada { get; set; }
         public string? UrlDaFotografia { get; set; }
         public Boolean EstadoDoUtilizador { get; set; }
-        public string TipoUtilizador { get; set; }
+        public TipoUtilizador TipoUtilizador { get; set; }
     }
 
 }

@@ -9,6 +9,13 @@ namespace WebAPI.Controllers
     public class PedidoDeMarcacaoController : ControllerBase
     {
         private readonly IPedidoDeMarcacaoService _pedidoService;
+        
+        [Authorize(Roles = "Administrador")]
+        [HttpGet("admin-only")]
+        public IActionResult OnlyForAdmins()
+        {
+            return Ok("Você é administrador!");
+        }
 
         public PedidoDeMarcacaoController(IPedidoDeMarcacaoService pedidoService)
         {
@@ -24,6 +31,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/PedidoDeMarcacao/5
+        
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -35,6 +43,8 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/PedidoDeMarcacao
+        [AllowAnonymous]
+        [HttpPost("pedido-anonimo")]
         [HttpPost]
         public IActionResult Create([FromBody] PedidoDeMarcacaoDTO pedidoDto)
         {

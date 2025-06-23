@@ -6,7 +6,7 @@ namespace DAL
     public class MarcacoesOnlineDbContext : DbContext
     {
         public MarcacoesOnlineDbContext(DbContextOptions<MarcacoesOnlineDbContext> options) : base(options) { }
-
+        public DbSet<Utilizador> Utilizadores { get; set; }
         public DbSet<UtenteRegistado> UtentesRegistados { get; set; }
         public DbSet<PedidoDeMarcacao> PedidosDeMarcacao { get; set; }
         public DbSet<ActoClinico> ActosClinico { get; set; }

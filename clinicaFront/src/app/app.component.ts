@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PedidoFormComponent } from './pedido-form.component/pedido-form.component.component';
-import { PedidoDetailsComponent } from './pedido-details.component/pedido-details.component.component';
+
+import {HeaderComponent} from './header/header.component';
+import {HomeComponent} from './home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    PedidoDetailsComponent,
-    PedidoFormComponent
+    HeaderComponent,
+    HomeComponent,
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

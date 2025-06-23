@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "79nX7iv6/gI=",
+  "dgSpecHash": "vKkz0m/zEgU=",
   "success": true,
   "projectFilePath": "/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/DAL.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/home/luciano-alfredo/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
+    "/home/luciano-alfredo/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.3.0/microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/microsoft.aspnetcore.authentication.core/2.3.0/microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",
@@ -111,12 +112,5 @@
     "/home/luciano-alfredo/.nuget/packages/system.threading.tasks.extensions/4.6.0/system.threading.tasks.extensions.4.6.0.nupkg.sha512",
     "/home/luciano-alfredo/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    }
-  ]
+  "logs": []
 }

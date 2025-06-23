@@ -1,3 +1,5 @@
+using Model;
+
 namespace DTO
 {
     public class UtilizadorDTO
@@ -10,6 +12,6 @@ namespace DTO
         public string Morada { get; set; }
         public string? UrlDaFotografia { get; set; }
         public bool EstadoDoUtilizador { get; set; }
-        public string TipoUtilizador { get; set; } 
+        public TipoUtilizador TipoUtilizador { get; set; } 
     }
 }

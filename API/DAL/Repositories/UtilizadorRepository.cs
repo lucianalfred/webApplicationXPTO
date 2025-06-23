@@ -3,10 +3,12 @@ using Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
+using DAL;
+namespace DAL.Repositories{
 public class UtilizadorRepository : IUtilizadorRepository
 {
-    private readonly AppDbContext _context;
-    public UtilizadorRepository(AppDbContext context) => _context = context;
+    private readonly MarcacoesOnlineDbContext _context;
+    public UtilizadorRepository(MarcacoesOnlineDbContext context) => _context = context;
 
     public async Task<List<UtilizadorDTO>> ObterTodosAsync() =>
         await _context.Utilizadores
@@ -35,7 +37,7 @@ public class UtilizadorRepository : IUtilizadorRepository
                 Morada = u.Morada,
                 UrlDaFotografia = u.UrlDaFotografia,
                 EstadoDoUtilizador = u.EstadoDoUtilizador,
-                TipoUtilizador = u.TipoUtilizador.ToString()
+                TipoUtilizador = u.TipoUtilizador
             })
             .FirstOrDefaultAsync();
 
@@ -78,4 +80,5 @@ public class UtilizadorRepository : IUtilizadorRepository
         _context.Utilizadores.Remove(entity);
         return await _context.SaveChangesAsync() > 0;
     }
+}
 }
