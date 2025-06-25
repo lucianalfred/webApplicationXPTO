@@ -37,12 +37,6 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/obj/Debug/net8.0/DAL.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/obj/Debug/net8.0/DAL.genruntimeconfig.cache
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/DAL/obj/Debug/net8.0/ref/DAL.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.csproj.AssemblyReference.cache
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.GeneratedMSBuildEditorConfig.editorconfig
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.AssemblyInfoInputs.cache
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.AssemblyInfo.cs
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.csproj.CoreCompileInputs.cache
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.sourcelink.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/bin/Debug/net8.0/DAL.deps.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/bin/Debug/net8.0/DAL.runtimeconfig.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/bin/Debug/net8.0/DAL.dll
@@ -55,6 +49,12 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/bin/Debug/net8.0/Shared.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/bin/Debug/net8.0/Interfaces.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/bin/Debug/net8.0/DTO.pdb
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.csproj.AssemblyReference.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.GeneratedMSBuildEditorConfig.editorconfig
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.AssemblyInfoInputs.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.AssemblyInfo.cs
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.csproj.CoreCompileInputs.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.sourcelink.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.csproj.Up2Date
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/DAL.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/DAL/obj/Debug/net8.0/refint/DAL.dll

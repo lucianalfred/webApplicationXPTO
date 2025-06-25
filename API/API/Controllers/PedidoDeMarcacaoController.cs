@@ -1,6 +1,7 @@
 using DTO;
 using Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -9,13 +10,6 @@ namespace WebAPI.Controllers
     public class PedidoDeMarcacaoController : ControllerBase
     {
         private readonly IPedidoDeMarcacaoService _pedidoService;
-        
-        [Authorize(Roles = "Administrador")]
-        [HttpGet("admin-only")]
-        public IActionResult OnlyForAdmins()
-        {
-            return Ok("Você é administrador!");
-        }
 
         public PedidoDeMarcacaoController(IPedidoDeMarcacaoService pedidoService)
         {
@@ -23,7 +17,10 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/PedidoDeMarcacao
+        
         [HttpGet]
+        [Authorize(Roles = "Utente,Administrativo,Administrador")]
+    
         public IActionResult GetAll()
         {
             var pedidos = _pedidoService.GetAll();
@@ -31,8 +28,8 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/PedidoDeMarcacao/5
-        
         [HttpGet("{id}")]
+        [Authorize(Roles = "Utente,Administrativo,Administrador")]
         public IActionResult GetById(int id)
         {
             var pedido = _pedidoService.GetById(id);
@@ -43,9 +40,8 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/PedidoDeMarcacao
-        [AllowAnonymous]
-        [HttpPost("pedido-anonimo")]
         [HttpPost]
+        [Authorize(Roles = "Administrativo,Administrador")]
         public IActionResult Create([FromBody] PedidoDeMarcacaoDTO pedidoDto)
         {
             if (!ModelState.IsValid)
@@ -59,6 +55,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT: api/PedidoDeMarcacao/5
+        [Authorize(Roles = "Administrativo,Administrador")]
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] PedidoDeMarcacaoDTO pedidoDto)
         {
@@ -73,6 +70,8 @@ namespace WebAPI.Controllers
         }
 
         // DELETE: api/PedidoDeMarcacao/5
+        [HttpDelete]
+        [Authorize(Roles = "Administrativo,Administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

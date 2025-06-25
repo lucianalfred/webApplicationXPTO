@@ -1,6 +1,7 @@
 using DTO;
 using Interfaces.Repositories;
 using Interfaces.Services;
+using Model;
 
 namespace Services
 {
@@ -18,5 +19,11 @@ namespace Services
         public Task<bool> CriarAsync(UtilizadorDTO utilizador) => _repository.CriarAsync(utilizador);
         public Task<bool> AtualizarAsync(UtilizadorDTO utilizador) => _repository.AtualizarAsync(utilizador);
         public Task<bool> RemoverAsync(int id) => _repository.RemoverAsync(id);
+        
+        public async Task<Utilizador?> ObterPorEmailAsync(string email)
+        {
+            return await _repository.ObterPorEmailAsync(email);
+        }
+
     }
 }

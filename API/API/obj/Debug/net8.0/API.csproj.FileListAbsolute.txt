@@ -375,7 +375,9 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Azure.Core.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Azure.Identity.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/BCrypt.Net-Next.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Humanizer.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.Build.Locator.dll
@@ -553,4 +555,3 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/ref/API.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/BCrypt.Net-Next.dll

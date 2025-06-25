@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Model;
 
 namespace DAL
 {
-    public class MarcacoesOnlineDbContext : DbContext
+    public class MarcacoesOnlineDbContext : IdentityDbContext<Utilizador, ApplicationRole, int>
     {
         public MarcacoesOnlineDbContext(DbContextOptions<MarcacoesOnlineDbContext> options) : base(options) { }
         public DbSet<Utilizador> Utilizadores { get; set; }
@@ -15,11 +16,6 @@ namespace DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Utilizador>()
-            .HasDiscriminator<string>("TipoUtilizador")
-            .HasValue<Utilizador>("Utilizador")
-            .HasValue<Administrador>("Administrador");
 
             modelBuilder.Entity<UtenteRegistado>()
                 .HasOne(u => u.Utilizador)

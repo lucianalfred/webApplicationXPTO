@@ -46,9 +46,9 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Atualizar(int id, [FromBody] UtilizadorDTO dto)
+        public async Task<IActionResult> Atualizar(String id, [FromBody] UtilizadorDTO dto)
         {
-            if (id != dto.Id)
+            if (id != dto.Nome)
                 return BadRequest("ID inconsistente.");
 
             bool atualizado = await _service.AtualizarAsync(dto);

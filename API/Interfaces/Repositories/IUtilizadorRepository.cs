@@ -1,4 +1,5 @@
 using DTO;
+using Model;
 
 namespace Interfaces.Repositories
 {
