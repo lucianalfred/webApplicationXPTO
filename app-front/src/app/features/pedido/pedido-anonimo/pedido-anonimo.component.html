@@ -1,0 +1,193 @@
+<app-header></app-header>
+<section class="container section active">
+
+    <ng-container *ngIf="modalAberto()">
+        <div class="modal" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Pedido enviado com sucesso!</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Recebemos seu pedido. Em breve entraremos em contato.</p>
+
+                    <button class="btn btn-outline" (click)="gerarPdf()">Imprimir Pedido</button>
+                    <button class="btn btn-primary" (click)="fecharModal()">OK</button>
+
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Marcação - Utente Anónimo</h2>
+            <p class="card-subtitle">Preencha os campos para solicitar a marcação</p>
+        </div>
+        <div class="steps">
+            <div class="step" [class.active]="step() === 1">
+                <div class="step-number" (click)="goToStep(1)">1</div>
+                <span>Dados Pessoais</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" [class.active]="step() === 2">
+                <div class="step-number" (click)="goToStep(2)">2</div>
+                <span>Consultas</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" [class.active]="step() === 3">
+                <div class="step-number" (click)="goToStep(3)">3</div>
+                <span>Confirmação</span>
+            </div>
+
+        </div>
+        <form id="formAnonimoStep1" [formGroup]="form">
+            <div *ngIf="step() === 1">
+                <!-- Dados pessoais -->
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Número de Utente *</label>
+                            <input class="form-control" formControlName="numeroUtente" placeholder="Número de Utente"
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Nome *</label>
+                            <input class="form-control" formControlName="nome" placeholder="Nome Completo" required />
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Data de Nascimento *</label>
+                            <input class="form-control" formControlName="dataNascimento" type="date" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Genero *</label>
+                            <select class="form-control" formControlName="genero">
+                                <option value="">Selecione...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                                <option value="O">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Email *</label>
+                            <input class="form-control" formControlName="email" type="email" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Telefone *</label>
+                            <input class="form-control" formControlName="telefone" required />
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Morada *</label>
+                            <textarea class="form-control" formControlName="morada" placeholder="Morada"
+                                required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="form-label">Fotografia *</label>
+                            <input class="form-control" type="file" (change)="onFileChange($event)" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-right btn-group">
+                    <button type="button" class="btn btn-outline" (click)="prevStep()"
+                        [disabled]="step() === 1">Voltar</button>
+                    <button type="button" class="btn btn-primary" (click)="nextStep()"
+                        [disabled]="step() === 3">Continuar</button>
+                </div>
+            </div>
+
+            <div *ngIf="step() === 2">
+                <h2>2. Atos Clínicos</h2>
+                <div formArrayName="actosClinicos">
+                    <div *ngFor="let acto of actosClinicos.controls; let i = index" [formGroupName]="i">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <select class="form-control" formControlName="tipo">
+                                    <option value="">Tipo de Consulta</option>
+                                    <option *ngFor="let t of tiposConsulta" [value]="t">{{ t }}</option>
+                                </select>
+                            </div>
+                            <div class="form-col">
+                                <select class="form-control" formControlName="subsistema">
+                                    <option value="">Subsistema</option>
+                                    <option *ngFor="let s of subsistemas" [value]="s">{{ s }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-col">
+                                <input class="form-control" formControlName="profissional" type="number"
+                                    placeholder="ID do Profissional (opcional)" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-col">
+                                <button type="button" class="btn btn-logout" (click)="removeActoClinico(i)"
+                                    *ngIf="actosClinicos.length > 1">
+                                    Remover
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <button type="button" class="btn btn-primary" (click)="addActoClinico()">+ Adicionar
+                            Ato</button>
+                    </div>
+                </div>
+
+                <div class="text-right btn-group">
+                    <button type="button" class="btn btn-outline" (click)="prevStep()">Voltar</button>
+                    <button type="button" class="btn btn-primary" (click)="nextStep()">Continuar</button>
+                </div>
+            </div>
+
+            <div *ngIf="step() === 3">
+                <h2>3. Confirmação</h2>
+                <div class="form-row">
+                    <div class="form-col">
+                        <input class="form-control" formControlName="intervaloDatas"
+                            placeholder="Intervalo de Datas *" />
+                    </div>
+                    <div class="form-col">
+                        <input class="form-control" formControlName="horarioSolicitado"
+                            placeholder="Horário Solicitado *" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <textarea class="form-control" formControlName="observacoes"
+                            placeholder="Observações adicionais"></textarea>
+                    </div>
+                </div>
+
+                <div class="text-right btn-group">
+                    <button type="button" class="btn btn-outline" (click)="prevStep()">Voltar</button>
+                    <button type="button" class="btn btn-primary" (click)="submit()">Enviar Pedido</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>

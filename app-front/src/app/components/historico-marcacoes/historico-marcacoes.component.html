@@ -1,0 +1,99 @@
+<app-header></app-header>
+<app-navigation></app-navigation>
+
+<section class="section container active">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Histórico de Marcações</h2>
+            <p class="card-subtitle">Veja os seus pedidos anteriores</p>
+        </div>
+
+        <div class="card-body">
+            <div *ngIf="carregando()" class="text-center">Carregando...</div>
+
+            <!-- tabela ---------------------------------------------------------->
+            <div class="table-container" *ngIf="!carregando() && historico().length">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Intervalo</th>
+                            <th>Estado</th>
+                            <th>Agendamento</th>
+                            <th class="text-right">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of historico()">
+                            <td>{{p.id}}</td>
+                            <td>{{p.intervaloDatas}}</td>
+                            <td>
+                                <span class="status-badge" [ngClass]="{
+                    'status-pedido': p.estado==='PEDIDO',
+                    'status-agendado': p.estado==='AGENDADO',
+                    'status-realizado': p.estado==='REALIZADO'
+                  }">{{p.estado}}</span>
+                            </td>
+                            <td>{{p.dataAgendamento | date: 'dd/MM/yyyy HH:mm'}}</td>
+                            <td class="text-right">
+                                <button class="btn btn-outline" (click)="verDetalhes(p)">Ver detalhes</button>
+                                <button class="btn btn-success" (click)="repetir(p)">Repetir</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div *ngIf="!carregando() && !historico().length" class="text-center">
+                <p>Sem marcações encontradas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- modal de detalhes ---------------------------------------------------->
+<ng-container *ngIf="modalAberto() && pedidoSelecionado() as ped">
+    <div class="modal" style="display:block">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Detalhes da Marcação #{{ped.id}}</h3>
+                <button class="modal-close" (click)="fecharModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <th>Estado</th>
+                        <td>{{ped.estado}}</td>
+                    </tr>
+                    <tr>
+                        <th>Intervalo</th>
+                        <td>{{ped.intervaloDatas}}</td>
+                    </tr>
+                    <tr>
+                        <th>Agendamento</th>
+                        <td>{{ped.dataAgendamento | date:'dd/MM/yyyy HH:mm'}}</td>
+                    </tr>
+                    <tr>
+                        <th>Observações</th>
+                        <td>{{ped.observacoes || '-'}}</td>
+                    </tr>
+                </table>
+
+                <!-- Actos clínicos -->
+                <h4 class="mt-24 mb-16">Actos Clínicos</h4>
+                <ul>
+                    <li *ngFor="let a of ped.actosClinico">
+                        {{a.tipoDeActoClinico}} – {{a.subSistemaDeSaude}} –
+                        Prof: {{a.profissional?.nome || 'N/A'}}
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline mt-16" (click)="gerarPdf(ped)">
+                    Gerar PDF
+                </button>
+                <button class="btn btn-outline" (click)="fecharModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</ng-container>

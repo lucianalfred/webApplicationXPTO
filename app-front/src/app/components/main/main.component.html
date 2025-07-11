@@ -1,0 +1,42 @@
+<main class="main-content">
+    <div class="container">
+        <section id="welcome" class="section active">
+            <div class="welcome-section">
+                <h2 class="welcome-title">Sistema de Marcação de Consultas</h2>
+                <p class="welcome-subtitle">Escolha o tipo de utilizador para continuar</p>
+                
+                <div class="user-type-cards">
+                    <a class="link-routes" href="utente/pedidos/anonimo">
+                    <div class="user-type-card" onclick="">
+                        <div class="user-type-icon">👤</div>
+                        <h3 class="user-type-title">Utente Anónimo</h3>
+                        <p class="user-type-description">Marque consultas sem registo prévio</p>
+                    </div>
+                    </a>
+                    
+                    <a class="link-routes" href="login">
+                    <div class="user-type-card" onclick="showUserType('registado')">
+                        <div class="user-type-icon">👥</div>
+                        <h3 class="user-type-title">Utente Registado</h3>
+                        <p class="user-type-description">Aceda com as suas credenciais</p>
+                    </div>
+                    </a>
+                    <a class="link-routes" href="login">
+                    <div class="user-type-card" onclick="showUserType('administrativo')">
+                        <div class="user-type-icon">👨‍💼</div>
+                        <h3 class="user-type-title">Administrativo</h3>
+                        <p class="user-type-description">Gerir marcações e pedidos</p>
+                    </div>
+                    </a>
+                    <a class="link-routes" href="login">
+                    <div class="user-type-card" onclick="showUserType('administrador')">
+                        <div class="user-type-icon">⚙️</div>
+                        <h3 class="user-type-title">Administrador</h3>
+                        <p class="user-type-description">Administrar o sistema</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

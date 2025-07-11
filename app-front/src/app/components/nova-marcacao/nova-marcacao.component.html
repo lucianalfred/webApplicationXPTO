@@ -1,0 +1,136 @@
+<app-header></app-header>
+<app-navigation></app-navigation>
+
+<section class="section active container">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Nova Marcação</h2>
+      <p class="card-subtitle">Preencha os dados e envie o pedido</p>
+    </div>
+
+    <!-- passos -->
+    <div class="steps">
+      <div class="step" [class.active]="etapa()===1" (click)="go(1)">
+        <div class="step-number">1</div><span>Dados</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" [class.active]="etapa()===2" (click)="go(2)">
+        <div class="step-number">2</div><span>Actos</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" [class.active]="etapa()===3" (click)="go(3)">
+        <div class="step-number">3</div><span>Confirmação</span>
+      </div>
+    </div>
+
+    <form [formGroup]="form">
+      <!-- ETAPA 1 ---------------------------------------------------------->
+      <ng-container *ngIf="etapa()===1">
+        <div class="form-row">
+          <div class="form-col">
+            <label class="form-label">Intervalo de Datas *</label>
+            <input class="form-control" formControlName="intervaloDatas" placeholder="ex: 15‑07‑2025 a 20‑07‑2025">
+          </div>
+          <div class="form-col">
+            <label class="form-label">Horário Solicitado *</label>
+            <input class="form-control" formControlName="horarioSolicitado" placeholder="ex: Manhã / 8‑12h">
+          </div>
+        </div>
+        <label class="form-label">Observações</label>
+        <textarea rows="3" class="form-control" formControlName="observacoes"></textarea>
+
+        <div class="text-right">
+          <button type="button" class="btn btn-primary" (click)="next()">Continuar</button>
+        </div>
+      </ng-container>
+
+      <!-- ETAPA 2 ---------------------------------------------------------->
+      <ng-container *ngIf="etapa()===2">
+        <h3 class="mb-16">Actos Clínicos</h3>
+
+        <div formArrayName="actosClinicos">
+          <div *ngFor="let grp of actosClinicos.controls; let i=index" [formGroupName]="i" class="cart-item">
+
+            <div class="form-row">
+              <div class="form-col">
+                <select class="form-control" formControlName="tipo">
+                  <option value="">Tipo de Acto *</option>
+                  <option *ngFor="let t of tiposConsulta" [value]="t">{{t}}</option>
+                </select>
+              </div>
+              <div class="form-col">
+                <select class="form-control" formControlName="subsistema">
+                  <option value="">Subsistema *</option>
+                  <option *ngFor="let s of subsistemas" [value]="s">{{s}}</option>
+                </select>
+              </div>
+            </div>
+
+            <input class="form-control mt-24" formControlName="profissional" placeholder="Profissional (opcional)">
+
+            <button type="button" class="btn btn-logout mt-24" (click)="removeActoClinico(i)"
+              *ngIf="actosClinicos.length>1">
+              Remover
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="addActoClinico()">
+          + Adicionar Acto
+        </button>
+
+        <div class="text-right mt-24">
+          <button type="button" class="btn btn-outline" (click)="prev()">Voltar</button>
+          <button type="button" class="btn btn-primary" (click)="next()">Continuar</button>
+        </div>
+      </ng-container>
+
+      <!-- ETAPA 3 ---------------------------------------------------------->
+      <ng-container *ngIf="etapa()===3">
+        <h3 class="mb-16">Confirmação</h3>
+
+        <div class="table-like mb-24">
+          <div class="row">
+            <div class="label">Intervalo de Datas:</div>
+            <div class="value">{{ form.value.intervaloDatas }}</div>
+          </div>
+          <div class="row">
+            <div class="label">Horário Solicitado:</div>
+            <div class="value">{{ form.value.horarioSolicitado }}</div>
+          </div>
+          <div class="row">
+            <div class="label">Observações:</div>
+            <div class="value">{{ form.value.observacoes || '—' }}</div>
+          </div>
+        </div>
+
+        <h4 class="mb-12">Actos Clínicos</h4>
+        <div *ngFor="let a of form.value.actosClinicos; let i = index" class="table-like mb-16">
+          <div class="row">
+            <div class="label">Tipo de Acto:</div>
+            <div class="value">{{ a.tipo }}</div>
+          </div>
+          <div class="row">
+            <div class="label">Subsistema:</div>
+            <div class="value">{{ a.subsistema }}</div>
+          </div>
+          <div class="row">
+            <div class="label">Profissional:</div>
+            <div class="value">{{ a.profissional || '—' }}</div>
+          </div>
+        </div>
+
+        <div class="text-right">
+          <button type="button" class="btn btn-outline" (click)="prev()">Voltar</button>
+          <button type="button" class="btn btn-success" [disabled]="enviando()" (click)="submit()">Enviar</button>
+        </div>
+      </ng-container>
+
+    </form>
+
+    <!-- feedback de sucesso -->
+    <div *ngIf="sucesso()" class="alert alert-success mt-24 text-center">
+      Pedido enviado com sucesso!
+    </div>
+  </div>
+</section>

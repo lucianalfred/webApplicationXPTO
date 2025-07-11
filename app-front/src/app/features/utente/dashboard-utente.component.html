@@ -1,0 +1,43 @@
+<app-header></app-header>
+<app-navigation></app-navigation>
+
+<section class="section active container">
+
+  <!-- Cabeçalho de boas‑vindas -->
+  <div class="mb-24 text-center">
+   
+  </div>
+
+  <!-- Cartões de resumo -->
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Resumo das suas marcações</h2>
+      <h2 class="card-subtitle">Bem‑vindo, {{ nome() }} (#{{ id() }})</h2>
+    </div>
+
+    <div class="form-row">
+      <div class="form-col">
+        <div class="alert alert-info text-center">
+          <h3>{{ pendentes() }}</h3>
+          <p>Pedidos Pendentes</p>
+        </div>
+      </div>
+      <div class="form-col">
+        <div class="alert alert-success text-center">
+          <h3>{{ agendados() }}</h3>
+          <p>Consultas Agendadas</p>
+        </div>
+      </div>
+      <div class="form-col">
+        <div class="alert alert-warning text-center">
+          <h3>{{ proximos() }}</h3>
+          <p>Próximas Consultas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+</section>
+
+

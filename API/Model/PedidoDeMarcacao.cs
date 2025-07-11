@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace Model
 {
     public enum EstadoDoPedidoDeMarcacao
@@ -21,14 +22,13 @@ namespace Model
         public string IntervaloDeDatasDoPedidoDeMarcacao { get; set; }
         public DateTime DataDeAgendamentoDoPedidoDeMarcacao { get; set; }
 
-    // Chave estrangeira para Identity
         public int? IdUsuario { get; set; }
 
         [ForeignKey("IdUsuario")]
-        public Utilizador Usuario { get; set; }  // Isto liga ao Identity
-
+        public Utilizador Utilizador { get; set; }  
+         
         public int? UtenteRegistadoId { get; set; }
-        public UtenteRegistado Utente { get; set; }
+        public UtenteRegistado? Utente { get; set; }
 
         public int? AdminstractivoId { get; set; }
         public Adminstractivo? Adminstractivo { get; set; }

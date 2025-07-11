@@ -1,0 +1,19 @@
+.step-number{
+    cursor: pointer;
+}
+
+.step {
+  opacity: 0.6;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.step.active {
+  font-weight: bold;
+  opacity: 1;
+  border-bottom: 2px solid #007bff;
+}
+
+button.btn{
+    margin: 2.5rem;
+}

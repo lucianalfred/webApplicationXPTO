@@ -24,7 +24,7 @@ namespace DAL
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<PedidoDeMarcacao>()
-                .HasOne(p => p.Utente)
+                .HasOne(p => p.Utilizador)
                 .WithMany()
                 .HasForeignKey(p => p.IdUsuario)
                 .OnDelete(DeleteBehavior.Restrict);

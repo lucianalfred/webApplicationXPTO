@@ -2,6 +2,7 @@ using DTO;
 using Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace WebAPI.Controllers
 {
@@ -25,18 +26,18 @@ namespace WebAPI.Controllers
 
             try
             {
-                     var sucesso = await _pedidoService.SaveAnonimo(dto);
+                var sucesso = await _pedidoService.SaveAnonimo(dto);
 
-             if (!sucesso)
-            return StatusCode(500, "Erro ao processar pedido anónimo.");
+                if (!sucesso)
+                    return StatusCode(500, "Erro ao processar pedido anónimo.");
 
-        return Ok(new { message = "Pedido de marcação anónimo enviado com sucesso!" });
+                return Ok(new { message = "Pedido de marcação anónimo enviado com sucesso!" });
+        }
+         catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro interno: {ex.Message}");
+        }
     }
-    catch (Exception ex)
-    {
-        return StatusCode(500, $"Erro interno: {ex.Message}");
-    }
-}
 
 
         // GET: api/PedidoDeMarcacao
@@ -76,6 +77,10 @@ namespace WebAPI.Controllers
                 return BadRequest("Utilizador não autenticado");
 
             pedidoDto.IdUsuario = int.Parse(userIdClaim);
+            // dentro do controller antes de chamar o service
+            Console.WriteLine($"UtenteRegistadoId   : {pedidoDto.UtenteRegistadoId}");
+            Console.WriteLine($"AdminstractivoId    : {pedidoDto.AdminstractivoId}");
+            Console.WriteLine($"IdUsuario (Utilizador): {pedidoDto.IdUsuario}");
 
             var result = await _pedidoService.Save(pedidoDto);
 

@@ -448,24 +448,20 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("AdminstractivoId");
 
-                    b.HasOne("Model.UtenteRegistado", "Utente")
+                    b.HasOne("Model.Utilizador", "Utilizador")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Model.Utilizador", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("IdUsuario");
-
-                    b.HasOne("Model.UtenteRegistado", null)
+                    b.HasOne("Model.UtenteRegistado", "Utente")
                         .WithMany("HistoricoDePedidoDeMarcacao")
                         .HasForeignKey("UtenteRegistadoId");
 
                     b.Navigation("Adminstractivo");
 
-                    b.Navigation("Usuario");
-
                     b.Navigation("Utente");
+
+                    b.Navigation("Utilizador");
                 });
 
             modelBuilder.Entity("Model.UtenteRegistado", b =>

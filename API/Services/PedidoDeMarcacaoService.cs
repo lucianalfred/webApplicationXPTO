@@ -66,7 +66,7 @@ namespace Services
                 IntervaloDeDatasDoPedidoDeMarcacao = dto.IntervaloDatas,
                 Observacoes = dto.Observacoes,
                 DataDeAgendamentoDoPedidoDeMarcacao = dto.DataAgendamento,
-                IdUsuario = dto.IdUsuario,  // Liga ao IdentityUser
+                IdUsuario = dto.IdUsuario, 
 
                 ActosClinico = dto.ActosClinico?.Select(a => new ActoClinico
                 {

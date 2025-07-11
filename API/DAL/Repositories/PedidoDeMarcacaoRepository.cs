@@ -41,7 +41,7 @@ namespace DAL.Repositories
         public async Task<PedidoDeMarcacao?> GetByIdAsync(int id)
         {
             return await _context.PedidosDeMarcacao
-                .Include(p => p.Utente)
+                .Include(p => p.Utilizador)
 
                 .Include(p => p.Adminstractivo)
                 .Include(p => p.ActosClinico)

@@ -1,0 +1,22 @@
+.table-like {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background: #f9f9f9;
+}
+
+.row {
+  display: flex;
+  padding: 4px 0;
+}
+
+.label {
+  font-weight: 600;
+  width: 180px;
+  color: #333;
+}
+
+.value {
+  flex: 1;
+  color: #444;
+}

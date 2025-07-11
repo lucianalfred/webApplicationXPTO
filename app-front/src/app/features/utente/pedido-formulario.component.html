@@ -1,0 +1,19 @@
+<form [formGroup]="pedidoForm" (ngSubmit)="onSubmit()">
+  <input formControlName="numeroUtente" placeholder="Número de Utente">
+  <input type="file" (change)="pedidoForm.patchValue({ fotografia: $event.target.files[0] })">
+  <input formControlName="nomeCompleto" placeholder="Nome Completo">
+  <input type="date" formControlName="dataNascimento">
+  <select formControlName="genero">
+    <option value="">Selecione</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Feminino">Feminino</option>
+  </select>
+  <input formControlName="telemovel" placeholder="Telemóvel">
+  <input formControlName="email" placeholder="Email">
+  <input formControlName="morada" placeholder="Morada">
+  <input formControlName="intervaloDatas" placeholder="Intervalo de Datas">
+  <input formControlName="horario" placeholder="Horário">
+  <textarea formControlName="observacoes" placeholder="Observações"></textarea>
+
+  <button type="submit">Enviar Pedido</button>
+</form>
