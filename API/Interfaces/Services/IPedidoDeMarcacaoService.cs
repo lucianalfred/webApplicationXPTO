@@ -6,8 +6,9 @@ namespace Interfaces.Services
     {
         IEnumerable<PedidoDeMarcacaoDTO> GetAll();
         PedidoDeMarcacaoDTO GetById(int id);
-        bool Save(PedidoDeMarcacaoDTO dto);
+        Task<bool> Save(PedidoDeMarcacaoDTO dto);
         bool Update(PedidoDeMarcacaoDTO dto);
         bool Delete(int id);
+        Task<bool> SaveAnonimo(PedidoDeMarcacaoAnonimoDTO dto);
     }
 }

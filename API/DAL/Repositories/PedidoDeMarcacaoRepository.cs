@@ -9,6 +9,21 @@ namespace DAL.Repositories
     {
         private readonly MarcacoesOnlineDbContext _context;
 
+
+        public async Task<bool> SaveAnonimoAsync(PedidoDeMarcacao pedido)
+{
+    try
+    {
+        _context.PedidosDeMarcacao.Add(pedido);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+    catch
+    {
+        return false;
+    }
+}
+
         public PedidoDeMarcacaoRepository(MarcacoesOnlineDbContext context)
         {
             _context = context;
@@ -27,7 +42,7 @@ namespace DAL.Repositories
         {
             return await _context.PedidosDeMarcacao
                 .Include(p => p.Utente)
-                
+
                 .Include(p => p.Adminstractivo)
                 .Include(p => p.ActosClinico)
                 .FirstOrDefaultAsync(p => p.Id == id);
@@ -50,5 +65,7 @@ namespace DAL.Repositories
             _context.PedidosDeMarcacao.Remove(pedido);
             return await _context.SaveChangesAsync() > 0;
         }
+
+    
     }
 }

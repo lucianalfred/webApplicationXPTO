@@ -1,78 +1,93 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using DAL;
-using DAL.Repositories;
-using Interfaces;
-using Interfaces.Services;
-using Interfaces.Repositories;
-using Services;
-using Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-
-
+using DAL;
+using DAL.Repositories;
+using Services;
+using Interfaces.Repositories;
+using Interfaces.Services;
+using Model;
 
 var builder = WebApplication.CreateBuilder(args);
- 
-builder.Services.AddScoped<IUtilizadorRepository, UtilizadorRepository>();
-builder.Services.AddScoped<IUtilizadorService, UtilizadorService>();
 
 
-builder.Services.AddScoped<IActoClinicoRepository, ActoClinicoRepository>();
-builder.Services.AddScoped<IProfissionalRepository, ProfissionalRepository>();
-builder.Services.AddScoped<IPedidoDeMarcacaoRepository, PedidoDeMarcacaoRepository>();
+builder.Services
+    .AddScoped<IEmailRepository,       EmailRepository>()
+    .AddScoped<IUtilizadorRepository,  UtilizadorRepository>()
+    .AddScoped<IUtilizadorService,     UtilizadorService>()
+    .AddScoped<IUtenteRegistadoRepository,  UtenteRegistadoRepository>()
+    .AddScoped<IUtenteRegistadoService,  UtenteRegistadoService>()
+    .AddScoped<IActoClinicoRepository, ActoClinicoRepository>()
+    .AddScoped<IActoClinicoService,    ActoClinicoService>()
+    .AddScoped<IProfissionalRepository, ProfissionalRepository>()
+    .AddScoped<IProfissionalService,    ProfissionalService>()
+    .AddScoped<IPedidoDeMarcacaoRepository, PedidoDeMarcacaoRepository>()
+    .AddScoped<IPedidoDeMarcacaoService,    PedidoDeMarcacaoService>();
 
 
-builder.Services.AddScoped<IActoClinicoService, ActoClinicoService>();
-builder.Services.AddScoped<IProfissionalService, ProfissionalService>();
-builder.Services.AddScoped<IPedidoDeMarcacaoService, PedidoDeMarcacaoService>();
+builder.Services.AddDbContext<MarcacoesOnlineDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("ClinicaConnection")));
 
-// Conexão com a base de dados
-builder.Services.AddDbContext<MarcacoesOnlineDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ClinicaConnection")));
-//Jwt Auth
-var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-var secretKey = jwtSettings["SecretKey"];
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
+builder.Services
+    .AddIdentityCore<Utilizador>(opt =>
     {
-        ValidateIssuer = false, // pode ativar se quiser definir um issuer
-        ValidateAudience = false, // pode ativar se quiser definir um audience
-        ValidateLifetime = true,
+        opt.Password.RequireDigit = false;
+        opt.Password.RequireLowercase = false;
+        opt.Password.RequireUppercase = false;
+        opt.Password.RequireNonAlphanumeric = false;
+        opt.Password.RequiredLength = 6;
+    })
+    .AddRoles<ApplicationRole>()
+    .AddEntityFrameworkStores<MarcacoesOnlineDbContext>()
+    .AddSignInManager()     
+    .AddDefaultTokenProviders();
+
+
+var secretKey = builder.Configuration["JwtSettings:SecretKey"]!;
+var key       = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddCookie(IdentityConstants.ApplicationScheme)
+    .AddJwtBearer(opt =>{
+    opt.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer           = false,
+        ValidateAudience         = false,
+        ValidateLifetime         = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        IssuerSigningKey         = key
+    };
+
+    opt.Events = new JwtBearerEvents
+    {
+        OnChallenge = ctx =>
+        {
+            ctx.HandleResponse();
+            ctx.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return Task.CompletedTask;
+        }
     };
 });
+builder.Services.AddAuthorization();
 
-// Identity com suporte a papéis
-builder.Services.AddIdentity<Utilizador, ApplicationRole>(options =>
-{
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;
-})
-.AddEntityFrameworkStores<MarcacoesOnlineDbContext>()
-.AddDefaultTokenProviders();
+
+builder.Services.AddCors(p =>
+    p.AddPolicy("Dev", policy => policy
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod()));
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddAuthorization();
-
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment())
 {
@@ -81,24 +96,18 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
+app.UseCors("Dev");          
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-// roles
+
 using (var scope = app.Services.CreateScope())
 {
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
-    var roles = new[] { "Administrador", "Administrativo", "Utente" };
-
-    foreach (var role in roles)
-    {
-        if (!await roleManager.RoleExistsAsync(role))
-        {
-            await roleManager.CreateAsync(new ApplicationRole {Name = role});
-        }
-    }
+    var rm = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+    foreach (var role in new[] { "Administrador", "Administrativo", "Utente" })
+        if (!await rm.RoleExistsAsync(role))
+            await rm.CreateAsync(new ApplicationRole { Name = role });
 }
 
 app.Run();
-

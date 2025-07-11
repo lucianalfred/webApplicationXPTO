@@ -1,6 +1,6 @@
 using DTO;
 
-namespace Interfaces
+namespace Interfaces.Repositories
 {
     public interface IProfissionalRepository
     {

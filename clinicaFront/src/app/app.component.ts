@@ -1,21 +1,27 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-import {HeaderComponent} from './header/header.component';
-import {HomeComponent} from './home/home.component';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    HomeComponent,
-    
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [RouterOutlet, RouterLink, CommonModule],
+  template: './app.component.html',
+  styles: './app.component.css'
 })
 export class AppComponent {
-  title = 'clinicaFront';
+  constructor(private authService: AuthService) {}
+  
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+  
+  getCurrentUser() {
+    return this.authService.getCurrentUser();
+  }
+  
+  logout() {
+    this.authService.logout();
+  }
 }

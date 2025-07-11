@@ -16,6 +16,29 @@ namespace WebAPI.Controllers
             _pedidoService = pedidoService;
         }
 
+        [HttpPost("anonimo")]
+        [AllowAnonymous]
+        public async Task<IActionResult> CriarPedidoAnonimo([FromBody] PedidoDeMarcacaoAnonimoDTO dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                     var sucesso = await _pedidoService.SaveAnonimo(dto);
+
+             if (!sucesso)
+            return StatusCode(500, "Erro ao processar pedido anónimo.");
+
+        return Ok(new { message = "Pedido de marcação anónimo enviado com sucesso!" });
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, $"Erro interno: {ex.Message}");
+    }
+}
+
+
         // GET: api/PedidoDeMarcacao
         
         [HttpGet]
@@ -39,21 +62,28 @@ namespace WebAPI.Controllers
             return Ok(pedido);
         }
 
+        
+
         // POST: api/PedidoDeMarcacao
         [HttpPost]
-        [Authorize(Roles = "Administrativo,Administrador")]
-        public IActionResult Create([FromBody] PedidoDeMarcacaoDTO pedidoDto)
+        [Authorize(Roles = "Utente,Administrativo,Administrador")]
+        
+        public async Task<IActionResult> Create(PedidoDeMarcacaoDTO pedidoDto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            bool result = _pedidoService.Save(pedidoDto);
-            if (!result)
-                return StatusCode(500, "Erro ao criar o pedido de marcação.");
+            if (string.IsNullOrEmpty(userIdClaim))
+                return BadRequest("Utilizador não autenticado");
 
-            return Ok(new { message = "Pedido de marcação criado com sucesso!" });
+            pedidoDto.IdUsuario = int.Parse(userIdClaim);
+
+            var result = await _pedidoService.Save(pedidoDto);
+
+            if (result)
+                return Ok(new { message = "Pedido registado com sucesso." });
+
+            return BadRequest("Erro ao registar o pedido.");
         }
-
         // PUT: api/PedidoDeMarcacao/5
         [Authorize(Roles = "Administrativo,Administrador")]
         [HttpPut("{id}")]
@@ -69,8 +99,7 @@ namespace WebAPI.Controllers
             return Ok(new { message = "Pedido de marcação atualizado com sucesso!" });
         }
 
-        // DELETE: api/PedidoDeMarcacao/5
-        [HttpDelete]
+       
         [Authorize(Roles = "Administrativo,Administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

@@ -555,3 +555,9 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/ref/API.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/MailKit.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/MimeKit.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Security.Cryptography.Pkcs.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll

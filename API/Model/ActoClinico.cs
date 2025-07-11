@@ -10,11 +10,8 @@ namespace Model
         public int Id { get; set; }
         public string TipoDeActoClinico { get; set; }
         public string? SubSistemaDeSaude { get; set; }
-        public Profissional? Profissional { get; set; }
+        public int ? ProfissionalId { get; set; }
         public string? Observacoes { get; set; }
-        
         public int PedidoDeMarcacaoId { get; set; } 
- 
-
     }
 }

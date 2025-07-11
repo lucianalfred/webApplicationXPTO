@@ -4,7 +4,7 @@ using Model;
 
 namespace DAL
 {
-    public class MarcacoesOnlineDbContext : IdentityDbContext<Utilizador, ApplicationRole, int>
+    public class MarcacoesOnlineDbContext : IdentityDbContext<Utilizador,ApplicationRole, int>
     {
         public MarcacoesOnlineDbContext(DbContextOptions<MarcacoesOnlineDbContext> options) : base(options) { }
         public DbSet<Utilizador> Utilizadores { get; set; }
@@ -26,7 +26,7 @@ namespace DAL
             modelBuilder.Entity<PedidoDeMarcacao>()
                 .HasOne(p => p.Utente)
                 .WithMany()
-                .HasForeignKey(p => p.UtenteId)
+                .HasForeignKey(p => p.IdUsuario)
                 .OnDelete(DeleteBehavior.Restrict);
    
         }

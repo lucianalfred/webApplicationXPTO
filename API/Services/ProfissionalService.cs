@@ -1,7 +1,7 @@
 using DTO;
 using Interfaces;
 using Interfaces.Services;
-
+using Interfaces.Repositories;
 namespace Services
 {
     public class ProfissionalService : IProfissionalService

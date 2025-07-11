@@ -1,3 +1,5 @@
+using Model;
+
 namespace DTO
 {
     public class ActoClinicoDTO
@@ -7,5 +9,7 @@ namespace DTO
         public string? SubSistemaDeSaude { get; set; }
         public string? Observacoes { get; set; }
         public int PedidoDeMarcacaoId { get; set; }
+        public int ? ProfissionalId { get; set; }
+
     }
 }

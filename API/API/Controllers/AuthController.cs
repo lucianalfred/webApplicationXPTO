@@ -30,7 +30,10 @@ public class AuthController : ControllerBase
             Email = dto.Email,
             Nome = dto.Nome,
             DataNascimento = dto.DataNascimento,
-            Morada = dto.Morada
+            Morada = dto.Morada,
+            Genero = dto.Genero,
+            Telefone = dto.Telefone,
+            EstadoDoUtilizador = false
         };
 
         var result = await _userManager.CreateAsync(user, dto.Password);

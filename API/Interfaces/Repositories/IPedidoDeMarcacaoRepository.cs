@@ -9,5 +9,7 @@ namespace Interfaces.Repositories
         Task<bool> SaveAsync(PedidoDeMarcacao pedido);
         Task<bool> UpdateAsync(PedidoDeMarcacao pedido);
         Task<bool> DeleteAsync(PedidoDeMarcacao pedido);
+        Task<bool> SaveAnonimoAsync(PedidoDeMarcacao pedido);
     }
+
 }

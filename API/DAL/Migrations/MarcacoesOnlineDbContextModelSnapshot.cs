@@ -153,8 +153,6 @@ namespace DAL.Migrations
 
                     b.HasIndex("PedidoDeMarcacaoId");
 
-                    b.HasIndex("ProfissionalId");
-
                     b.ToTable("ActosClinico");
                 });
 
@@ -224,6 +222,9 @@ namespace DAL.Migrations
                     b.Property<int>("EstadoDoPedidoDeMarcacao")
                         .HasColumnType("int");
 
+                    b.Property<int?>("IdUsuario")
+                        .HasColumnType("int");
+
                     b.Property<string>("IntervaloDeDatasDoPedidoDeMarcacao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -232,9 +233,6 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UtenteId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UtenteRegistadoId")
                         .HasColumnType("int");
 
@@ -242,7 +240,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("AdminstractivoId");
 
-                    b.HasIndex("UtenteId");
+                    b.HasIndex("IdUsuario");
 
                     b.HasIndex("UtenteRegistadoId");
 
@@ -316,6 +314,10 @@ namespace DAL.Migrations
                     b.Property<bool>("EstadoDoUtilizador")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Genero")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -327,6 +329,7 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -347,6 +350,10 @@ namespace DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TipoUtilizador")
@@ -433,12 +440,6 @@ namespace DAL.Migrations
                         .HasForeignKey("PedidoDeMarcacaoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Model.Profissional", "Profissional")
-                        .WithMany()
-                        .HasForeignKey("ProfissionalId");
-
-                    b.Navigation("Profissional");
                 });
 
             modelBuilder.Entity("Model.PedidoDeMarcacao", b =>
@@ -449,14 +450,20 @@ namespace DAL.Migrations
 
                     b.HasOne("Model.UtenteRegistado", "Utente")
                         .WithMany()
-                        .HasForeignKey("UtenteId")
+                        .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Model.Utilizador", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario");
 
                     b.HasOne("Model.UtenteRegistado", null)
                         .WithMany("HistoricoDePedidoDeMarcacao")
                         .HasForeignKey("UtenteRegistadoId");
 
                     b.Navigation("Adminstractivo");
+
+                    b.Navigation("Usuario");
 
                     b.Navigation("Utente");
                 });

@@ -2,7 +2,7 @@ using DTO;
 using Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Model;
-
+using Interfaces.Repositories;
 namespace DAL.Repositories
 {
     public class ProfissionalRepository : IProfissionalRepository

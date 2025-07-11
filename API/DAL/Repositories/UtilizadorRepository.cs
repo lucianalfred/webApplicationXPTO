@@ -18,7 +18,7 @@ namespace DAL.Repositories
                     DataNascimento = u.DataNascimento,
                     Morada = u.Morada,
                     UrlDaFotografia = u.UrlDaFotografia,
-                    EstadoDoUtilizador = u.EstadoDoUtilizador,
+                    EstadoDoUtilizador = (bool)u.EstadoDoUtilizador,
                     TipoUtilizador = u.TipoUtilizador.ToString()
                 })
                 .ToListAsync();
@@ -31,7 +31,7 @@ namespace DAL.Repositories
                     DataNascimento = u.DataNascimento,
                     Morada = u.Morada,
                     UrlDaFotografia = u.UrlDaFotografia,
-                    EstadoDoUtilizador = u.EstadoDoUtilizador,
+                    EstadoDoUtilizador = (bool)u.EstadoDoUtilizador,
                     TipoUtilizador = u.TipoUtilizador.ToString()
                 })
                 .FirstOrDefaultAsync();
@@ -43,7 +43,7 @@ namespace DAL.Repositories
                 DataNascimento = u.DataNascimento,
                 Morada = u.Morada,
                 UrlDaFotografia = u.UrlDaFotografia,
-                EstadoDoUtilizador = u.EstadoDoUtilizador,
+                EstadoDoUtilizador =  true,
                 TipoUtilizador = Enum.Parse<TipoUtilizador>(u.TipoUtilizador)
             };
             _context.Utilizadores.Add(entity);
@@ -58,7 +58,7 @@ namespace DAL.Repositories
             entity.DataNascimento = u.DataNascimento;
             entity.Morada = u.Morada;
             entity.UrlDaFotografia = u.UrlDaFotografia;
-            entity.EstadoDoUtilizador = u.EstadoDoUtilizador;
+            entity.EstadoDoUtilizador = true;
             entity.TipoUtilizador = Enum.Parse<TipoUtilizador>(u.TipoUtilizador);
             return await _context.SaveChangesAsync() > 0;
         }
