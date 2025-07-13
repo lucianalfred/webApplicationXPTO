@@ -1,11 +1,38 @@
 <app-header></app-header>
 <app-navigation></app-navigation>
 
-<section id="perfilUsuario" class="section active container">
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">Perfil de Utilizador</h2>
-            <p class="card-subtitle">Seu Perfil</p>
-        </div>
+<section class="section active container" *ngIf="!us.carregando(); else load">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Perfil de Utilizador</h2>
     </div>
+
+    <div class="card-body" *ngIf="us.perfil() as p">
+      <div class="perfil">
+        <img *ngIf="p.urlDaFotografia; else avatar"
+             [src]="p.urlDaFotografia" alt="Foto" class="foto">
+        <ng-template #avatar>
+          <div class="avatar">{{ p.nome[0] }}</div>
+        </ng-template>
+
+        <div class="info">
+          <h3>{{ p.nome }}</h3>
+          <p><strong>Morada:</strong> {{ p.morada }}</p>
+          <p><strong>Telefone:</strong> {{ p.telefone }}</p>
+          <p><strong>Data de Nascimento:</strong>
+             {{ p.dataNascimento | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Estado:</strong>
+             <span [class.badge-success]="p.estadoDoUtilizador"
+                   [class.badge-danger]="!p.estadoDoUtilizador">
+               {{ p.estadoDoUtilizador ? 'Ativo' : 'Inativo' }}
+             </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<ng-template #load>
+  <div class="text-center mt-32">Carregando…</div>
+</ng-template>

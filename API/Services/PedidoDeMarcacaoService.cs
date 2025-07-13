@@ -28,10 +28,12 @@ namespace Services
                 var pedidos = _repository.GetAllAsync().Result;
                 return pedidos.Select(p => new PedidoDeMarcacaoDTO
                 {
+                    Id = p.Id,
                     Estado = p.EstadoDoPedidoDeMarcacao.ToString(),
                     DataCriacao = p.DataDeCriacaoDoPedidoMarcacao,
                     IntervaloDatas = p.IntervaloDeDatasDoPedidoDeMarcacao,
                     Observacoes = p.Observacoes,
+                    UtenteEmail  = p. Utilizador?.Email,
                     UtenteRegistadoId = p.Utente?.Id,
                     AdminstractivoId = p.Adminstractivo?.Id,
                     DataAgendamento = p.DataDeAgendamentoDoPedidoDeMarcacao,
@@ -56,7 +58,12 @@ namespace Services
             };
         }
 //
+//
+         public Task<bool> AgendarAsync(int id, DateTime data)
+                    => _repository.AgendarAsync(id, data);
 
+
+//
         public async Task<bool> Save(PedidoDeMarcacaoDTO dto)
         {
             var pedido = new PedidoDeMarcacao
@@ -67,7 +74,6 @@ namespace Services
                 Observacoes = dto.Observacoes,
                 DataDeAgendamentoDoPedidoDeMarcacao = dto.DataAgendamento,
                 IdUsuario = dto.IdUsuario, 
-
                 ActosClinico = dto.ActosClinico?.Select(a => new ActoClinico
                 {
                     TipoDeActoClinico = a.TipoDeActoClinico,
@@ -75,10 +81,6 @@ namespace Services
                     ProfissionalId = a.ProfissionalId
                 }).ToList()
             };
-
-            if (dto.UtenteRegistadoId.HasValue)
-                pedido.UtenteRegistadoId = dto.UtenteRegistadoId;
-
             if (dto.AdminstractivoId.HasValue)
                 pedido.AdminstractivoId = dto.AdminstractivoId;
 
@@ -87,8 +89,35 @@ namespace Services
 
 
 
-//
+//get by user id
+    public IEnumerable<PedidoDeMarcacaoDTO> GetByUsuario(int idUsuario)
+    {
+        var pedidos = _repository.GetByUsuarioAsync(idUsuario).Result;
+        return pedidos.Select(Mapear);
+    }
 
+    //mapeamento
+    private static PedidoDeMarcacaoDTO Mapear(PedidoDeMarcacao p) => new()
+    {
+        Id                 = p.Id,
+        IdUsuario          = p.IdUsuario,
+        Estado             = p.EstadoDoPedidoDeMarcacao.ToString(),
+        DataCriacao        = p.DataDeCriacaoDoPedidoMarcacao,
+        IntervaloDatas     = p.IntervaloDeDatasDoPedidoDeMarcacao,
+        Observacoes        = p.Observacoes,
+        UtenteRegistadoId  = p.UtenteRegistadoId,
+        AdminstractivoId   = p.AdminstractivoId,
+        DataAgendamento    = p.DataDeAgendamentoDoPedidoDeMarcacao,
+        ActosClinico       = p.ActosClinico.Select(a => new ActoClinicoDTO
+        {
+            Id                 = a.Id,
+            TipoDeActoClinico  = a.TipoDeActoClinico,
+            SubSistemaDeSaude  = a.SubSistemaDeSaude,
+            ProfissionalId     = a.ProfissionalId
+        }).ToList()
+    };
+
+//
 
         public bool Update(PedidoDeMarcacaoDTO dto)
         {

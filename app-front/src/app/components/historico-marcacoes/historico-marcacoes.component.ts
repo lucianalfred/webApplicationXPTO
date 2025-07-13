@@ -18,6 +18,7 @@ interface HistoricoPedido {
   dataAgendamento?: string;
   observacoes?: string;
   utenteRegistadoId: number;
+  idUsuario: number,
   actosClinico?: any[];
 }
 
@@ -46,15 +47,13 @@ export class HistoricoMarcacoesComponent implements OnInit {
   pedidoSelecionado = signal<HistoricoPedido | null>(null);
 
   ngOnInit() {
-    const id = this.auth.userId();
-    this.http.get<HistoricoPedido[]>('http://localhost:5026/api/PedidoDeMarcacao')
-      .subscribe({
-        next: dados => {
-          this.historico.set(dados.filter(p => p.utenteRegistadoId === id));
-          this.carregando.set(false);
-        },
-        error: () => this.carregando.set(false)
-      });
+    const id = this.auth.userId(); 
+    this.http.get<HistoricoPedido[]>(
+      `http://localhost:5026/api/PedidoDeMarcacao/usuario/${id}`
+    ).subscribe({
+      next: dados => { this.historico.set(dados); this.carregando.set(false); },
+      error: _ => { this.carregando.set(false); }
+    });
   }
 
   // gerar pdf 
@@ -113,7 +112,6 @@ export class HistoricoMarcacoesComponent implements OnInit {
       }
     };
 
-    pdfMake.createPdf(docDefinition).open();
     pdfMake.createPdf(docDefinition).download(`Marcacao_${ped.id}.pdf`);
 
   }

@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<app-administrador-navigation></app-administrador-navigation>
+
+<section class="section active container">
+
+  <div class="mb-24 text-center">
+    <h1>Gestão de Utilizadores</h1>
+    <p class="text-muted">Painel de administrador para gerir os utilizadores do sistema.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Resumo Geral</h2>
+    </div>
+
+    <div class="form-row">
+      <div class="form-col">
+        <div class="alert alert-primary text-center">
+          <h3>{{utilizadores.length}}</h3>
+          <p>Total de Utilizadores</p>
+        </div>
+      </div>
+      <div class="form-col">
+        <div class="alert alert-success text-center">
+          <h3>{{ ativos }}</h3>
+          <p>Utilizadores Ativos</p>
+        </div>
+      </div>
+      <div class="form-col">
+        <div class="alert alert-danger text-center">
+          <h3>{{ inativos }}</h3>
+          <p>Utilizadores Inativos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

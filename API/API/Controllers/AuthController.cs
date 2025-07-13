@@ -33,7 +33,7 @@ public class AuthController : ControllerBase
             Morada = dto.Morada,
             Genero = dto.Genero,
             Telefone = dto.Telefone,
-            EstadoDoUtilizador = false
+            EstadoDoUtilizador = true
         };
 
         var result = await _userManager.CreateAsync(user, dto.Password);

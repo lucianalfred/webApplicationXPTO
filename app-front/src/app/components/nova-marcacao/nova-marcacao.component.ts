@@ -99,7 +99,6 @@ export class NovaMarcacaoComponent {
       observacoes,
       dataAgendamento: new Date(),
       idUsuario : this.auth.userId(),          
-      utenteRegistadoId: this.auth.userId(),
       actosClinico: this.actosClinicos.value.map((a: any) => ({
         tipoDeActoClinico: a.tipo,
         subSistemaDeSaude: a.subsistema,

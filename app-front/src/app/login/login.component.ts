@@ -28,15 +28,14 @@ export class LoginComponent {
 
         switch (role) {
           case 'Administrador':
-            this.router.navigateByUrl('/admin'); break;
+            this.router.navigateByUrl('/administrador/dashboard'); break;
           case 'Administrativo':
-            this.router.navigateByUrl('/administrativo'); break;
+            this.router.navigateByUrl('administrativo/dashboard'); break;
           case 'Utente':
-            console.log("Utente log");
-            this.router.navigateByUrl('/utente'); break;
+            this.router.navigateByUrl('/utente/dashboard'); break;
           default:
             console.log("default role");
-            this.router.navigateByUrl('/'); // fallback
+            this.router.navigateByUrl('/home'); 
         }
       },
       error: err => alert('Credenciais inválidas')

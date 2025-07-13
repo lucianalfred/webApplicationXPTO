@@ -6,10 +6,12 @@ namespace Interfaces.Repositories
     {
         Task<IEnumerable<PedidoDeMarcacao>> GetAllAsync();
         Task<PedidoDeMarcacao?> GetByIdAsync(int id);
+        Task<IEnumerable<PedidoDeMarcacao>> GetByUsuarioAsync(int idUsuario);  
         Task<bool> SaveAsync(PedidoDeMarcacao pedido);
         Task<bool> UpdateAsync(PedidoDeMarcacao pedido);
         Task<bool> DeleteAsync(PedidoDeMarcacao pedido);
         Task<bool> SaveAnonimoAsync(PedidoDeMarcacao pedido);
+        Task<bool> AgendarAsync(int id, DateTime data);
     }
 
 }

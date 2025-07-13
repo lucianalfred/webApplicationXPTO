@@ -70,10 +70,5 @@ namespace DAL.Repositories
             _context.Utilizadores.Remove(entity);
             return await _context.SaveChangesAsync() > 0;
         }
-
-        public async Task<Utilizador?> ObterPorEmailAsync(string email)
-        {
-            return await _context.Utilizadores.FirstOrDefaultAsync(u => u.Email == email);
-        }
     }
 }

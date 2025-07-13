@@ -1,0 +1,187 @@
+<app-header></app-header>
+<app-administrador-navigation></app-administrador-navigation>
+<section class="section active container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2 class="card-title">Lista de Utilizadores</h2>
+            <button class="btn btn-primary" (click)="abrirAdicionar()">
+                Adicionar Utilizador
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Estado</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let u of utilizadores">
+                        <td>{{ u.id }}</td>
+                        <td>{{ u.nome }}</td>
+                        <td>{{ u.email }}</td>
+                        <td>
+                            <span [ngClass]="{'text-success': u.estado, 'text-danger': !u.estado}">
+                                {{ u.estado ? 'Ativo' : 'Inativo' }}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-info" (click)="verPerfil(u.id)">Perfil</button>
+                            <button class="btn btn-sm btn-outline-warning" *ngIf="u.estado"
+                                (click)="desativar(u.id)">Desativar</button>
+                            <button class="btn btn-sm btn-outline-success" *ngIf="!u.estado"
+                                (click)="ativar(u.id)">Ativar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL PERFIL -->
+<ng-container *ngIf="modalPerfilAberto()">
+    <div class="modal" style="display:block">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 class="modal-title">Perfil de {{ perfil?.nome }}</h3>
+                <button class="modal-close" (click)="fecharPerfil()">&times;</button>
+            </div>
+
+            <div class="modal-body" *ngIf="perfil">
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <td>{{ perfil.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nome</th>
+                        <td>{{ perfil.nome }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ perfil.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telefone</th>
+                        <td>{{ perfil.telefone || '—' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Morada</th>
+                        <td>{{ perfil.morada || '—' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Data Nasc.</th>
+                        <td>{{ perfil.dataNascimento | date }}</td>
+                    </tr>
+                    <tr>
+                        <th>Gênero</th>
+                        <td>{{ perfil.genero }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tipo</th>
+                        <td>{{ perfil.tipoUtilizador }}</td>
+                    </tr>
+                    <tr>
+                        <th>Estado</th>
+                        <td>
+                            <span [ngClass]="{
+                  'text-success': perfil.estadoDoUtilizador,
+                  'text-danger': !perfil.estadoDoUtilizador
+                }">
+                                {{ perfil.estadoDoUtilizador ? 'Ativo' : 'Inativo' }}
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Rodapé -->
+            <div class="modal-footer">
+                <button class="btn btn-outline" (click)="fecharPerfil()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<!---->
+
+<ng-container *ngIf="modalAdicionarAberto()">
+    <div class="modal" style="display:block">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 class="modal-title">Adicionar Utilizador</h3>
+                <button class="modal-close" (click)="fecharAdicionar()">&times;</button>
+            </div>
+
+
+            <form [formGroup]="addForm" (ngSubmit)="submeterNovo()">
+                <div class="modal-body form-grid">
+
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" formControlName="nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" formControlName="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data de Nascimento</label>
+                        <input type="date" class="form-control" formControlName="dataNascimento">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Morada</label>
+                        <input type="text" class="form-control" formControlName="morada">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gênero</label>
+                        <select class="form-control" formControlName="genero">
+                            <option>Masculino</option>
+                            <option>Feminino</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text" class="form-control" formControlName="telefone">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Papel</label>
+                        <select class="form-control" formControlName="papel">
+                            <option>Utente</option>
+                            <option>Administrativo</option>
+                            <option>Administrador</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">
+                        Salvar
+                    </button>
+                    <button type="button" class="btn btn-outline" (click)="fecharAdicionar()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-container>

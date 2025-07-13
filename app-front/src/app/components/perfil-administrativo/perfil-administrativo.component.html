@@ -1,0 +1,31 @@
+<app-header></app-header>
+<app-administrativo-navigation></app-administrativo-navigation>
+
+
+<section class="section active container" *ngIf="!adm.carregando(); else load">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Perfil do Administrativo</h2>
+    </div>
+
+    <div class="card-body" *ngIf="adm.perfil() as user">
+      <div class="perfil">
+        <img *ngIf="user.urlDaFotografia; else avatar"
+             [src]="user.urlDaFotografia" alt="Foto" class="foto">
+        <ng-template #avatar>
+          <div class="avatar">{{ user.nome[0] }}</div>
+        </ng-template>
+
+        <div class="info">
+          <h3>{{ user.nome }}</h3>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Telefone:</strong> {{ user.telefone }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #load>
+  <div class="text-center mt-32">Carregando…</div>
+</ng-template>

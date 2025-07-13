@@ -1,5 +1,6 @@
 using DTO;
 using Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -9,63 +10,57 @@ namespace API.Controllers
     public class UtilizadorController : ControllerBase
     {
         private readonly IUtilizadorService _service;
+        public UtilizadorController(IUtilizadorService service) => _service = service;
 
-        public UtilizadorController(IUtilizadorService service)
-        {
-            _service = service;
-        }
-
+        // GET api/Utilizador
         [HttpGet]
+        [Authorize(Roles = "Administrador")]          
         public async Task<IActionResult> ObterTodos()
-        {
-            var utilizadores = await _service.ObterTodosAsync();
-            return Ok(utilizadores);
-        }
+            => Ok(await _service.ObterTodosAsync());
 
-        [HttpGet("{id}")]
+        // GET api/Utilizador/42
+        [HttpGet("{id:int}")]
+        [Authorize]                                   
         public async Task<IActionResult> ObterPorId(int id)
         {
-            var utilizador = await _service.ObterPorIdAsync(id);
-            if (utilizador == null)
-                return NotFound();
-
-            return Ok(utilizador);
+            var u = await _service.ObterPorIdAsync(id);
+            return u is null ? NotFound() : Ok(u);
         }
 
+        // POST api/Utilizador
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Criar([FromBody] UtilizadorDTO dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            bool criado = await _service.CriarAsync(dto);
-            if (!criado)
-                return StatusCode(500, "Erro ao criar utilizador.");
-
-            return Ok(new { message = "Utilizador criado com sucesso." });
+            var ok = await _service.CriarAsync(dto);
+            return ok
+                ? Ok(new { message = "Utilizador criado com sucesso." })
+                : StatusCode(500, "Erro ao criar utilizador.");
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Atualizar(String id, [FromBody] UtilizadorDTO dto)
+        // PUT api/Utilizador/42
+        [HttpPut("{id:int}")]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> Atualizar(int id, [FromBody] UtilizadorDTO dto)
         {
-            if (id != dto.Nome)
-                return BadRequest("ID inconsistente.");
-
-            bool atualizado = await _service.AtualizarAsync(dto);
-            if (!atualizado)
-                return NotFound("Utilizador não encontrado.");
-
-            return Ok(new { message = "Utilizador atualizado com sucesso." });
+            dto.Id = id;                              
+            var ok = await _service.AtualizarAsync(dto);
+            return ok
+                ? Ok(new { message = "Utilizador atualizado com sucesso." })
+                : NotFound("Utilizador não encontrado.");
         }
 
-        [HttpDelete("{id}")]
+        // DELETE api/Utilizador/42
+        [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Remover(int id)
         {
-            bool removido = await _service.RemoverAsync(id);
-            if (!removido)
-                return NotFound("Utilizador não encontrado.");
-
-            return Ok(new { message = "Utilizador removido com sucesso." });
+            var ok = await _service.RemoverAsync(id);
+            return ok
+                ? Ok(new { message = "Utilizador removido com sucesso." })
+                : NotFound("Utilizador não encontrado.");
         }
     }
 }

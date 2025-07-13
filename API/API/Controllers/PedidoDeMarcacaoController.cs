@@ -77,7 +77,7 @@ namespace WebAPI.Controllers
                 return BadRequest("Utilizador não autenticado");
 
             pedidoDto.IdUsuario = int.Parse(userIdClaim);
-            // dentro do controller antes de chamar o service
+            
             Console.WriteLine($"UtenteRegistadoId   : {pedidoDto.UtenteRegistadoId}");
             Console.WriteLine($"AdminstractivoId    : {pedidoDto.AdminstractivoId}");
             Console.WriteLine($"IdUsuario (Utilizador): {pedidoDto.IdUsuario}");
@@ -89,6 +89,15 @@ namespace WebAPI.Controllers
 
             return BadRequest("Erro ao registar o pedido.");
         }
+        // api/PedidoDeMarcacao/usuario/42
+        [HttpGet("usuario/{idUsuario:int}")]
+        [Authorize(Roles = "Utente,Administrativo,Administrador")]
+        public IActionResult HistoricoPorUsuario(int idUsuario)
+        {
+            var lista = _pedidoService.GetByUsuario(idUsuario);
+            return Ok(lista);
+        }
+
         // PUT: api/PedidoDeMarcacao/5
         [Authorize(Roles = "Administrativo,Administrador")]
         [HttpPut("{id}")]
@@ -104,11 +113,21 @@ namespace WebAPI.Controllers
             return Ok(new { message = "Pedido de marcação atualizado com sucesso!" });
         }
 
-       
-        [Authorize(Roles = "Administrativo,Administrador")]
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
+       //// PUT: api/PedidoDeMarcacao/42/agendar
+    [Authorize(Roles = "Administrativo,Administrador")]
+    [HttpPut("{id:int}/agendar")]
+    public async Task<IActionResult> AgendarPedido(int id, [FromBody] AgendarPedidoDTO dto)
+    {
+        var ok = await _pedidoService.AgendarAsync(id,
+                     dto.DataDeAgendamentoDoPedidoDeMarcacao  ?? DateTime.UtcNow);
+
+        return ok ? Ok(new { message = "Pedido agendado com sucesso." }): NotFound("Pedido não encontrado.");
+    }      
+
+    [Authorize(Roles = "Administrativo,Administrador")]
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
             bool result = _pedidoService.Delete(id);
             if (!result)
                 return NotFound("Pedido de marcação não encontrado para exclusão.");

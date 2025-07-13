@@ -10,6 +10,6 @@ namespace Interfaces.Repositories
         Task<bool> CriarAsync(UtilizadorDTO utilizador);
         Task<bool> AtualizarAsync(UtilizadorDTO utilizador);
         Task<bool> RemoverAsync(int id);
-        Task<Utilizador> ObterPorEmailAsync(string email);
+    
     }
 }

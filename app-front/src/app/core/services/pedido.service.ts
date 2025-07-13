@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 
 export interface PedidoResumo {
   id: number;
-  data: string;        // ISO
-  hora: string;        // HH:mm
+  utenteEmail: string,
+  data: string;
+  hora: string;
   tipo: string;
   profissional?: string;
   estado: 'Pedido' | 'Agendado' | 'Realizado';
@@ -14,9 +15,9 @@ export interface PedidoResumo {
 
 @Injectable({ providedIn: 'root' })
 export class PedidoService {
-  private api = 'https://localhost:5001/api/PedidoDeMarcacao';
+  private api = 'http://localhost:5026/api/PedidoDeMarcacao/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getPedidosDoUtente(): Observable<any[]> {
     return this.http.get<any[]>(`${this.api}`);
@@ -29,10 +30,20 @@ export class PedidoService {
   criarPedidoAnonimo(pedido: any): Observable<any> {
     return this.http.post(`${this.api}`, pedido);
   }
+  getAll() {
+    return this.http.get<any[]>(this.api);
+  }
 
+  agendar(id: number, data: Date, feedback?: string) {
+    return this.http.put(`${this.api}${id}/agendar`,
+      { dataAgendamento: data, feedback });
+  }
+
+  updateEstado(id: number, estado: string, feedback?: string) {
+    return this.http.put(`${this.api}${id}`, { id, estado, feedback });
+  }
   getMeusPedidos(): Observable<PedidoResumo[]> {
-    return this.http.get<PedidoResumo[]>('/api/PedidoDeMarcacao');
+    return this.http.get<PedidoResumo[]>(`${this.api}`);
   }
 }
-
 

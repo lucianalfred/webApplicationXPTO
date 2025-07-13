@@ -1,0 +1,96 @@
+<app-header></app-header>
+<app-administrativo-navigation></app-administrativo-navigation>
+
+<section class="section active container">
+
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2 class="card-title">Pedidos de Marcação</h2>
+
+            <!-- filtro -->
+            <select class="form-control sm-w-200" [ngModel]="filtroEstado()" (ngModelChange)="filtroEstado.set($event)">
+                <option value="Todos">Todos</option>
+                <option value="EmEspera">Em Espera</option>
+                <option value="Agendado">Agendado</option>
+                <option value="Concluido">Concluído</option>
+            </select>
+
+        </div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Utente</th>
+                        <th>Data</th>
+                        <th>Estado</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let p of pedidosFiltrados()">
+                        <td>{{ p.id }}</td>
+                        <td>{{ p.utenteEmail }}</td>
+                        <td>{{ p.dataAgendamento | date:'dd/MM/yyyy HH:mm' }}</td>
+                        <td>
+                            <span [ngClass]="{
+                    'badge-warning': p.estado==='EmEspera',
+                    'badge-info'   : p.estado==='Agendado',
+                    'badge-success': p.estado==='Concluido'}">
+                                {{ p.estado }}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-info" (click)="abrirDetalhes(p)">Detalhes</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ================= MODAL DETALHES/EDIÇÃO ================= -->
+<ng-container *ngIf="modalAberto()">
+    <div class="modal" style="display:block">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    Pedido #{{ pedidoSel.id }} – {{ pedidoSel.utenteNome }}
+                </h3>
+                <button class="modal-close" (click)="fecharModal()">&times;</button>
+            </div>
+
+            <form [formGroup]="fbForm" (ngSubmit)="salvarAlteracoes()">
+                <div class="modal-body form-grid">
+
+                    <p><strong>Intervalo:</strong> {{ pedidoSel.intervaloDatas }}</p>
+                    <p><strong>Observações:</strong> {{ pedidoSel.observacoes || '—' }}</p>
+
+                    <label>Estado</label>
+                    <select class="form-control" formControlName="estado">
+                        <option value="EmEspera">Em Espera</option>
+                        <option value="Agendado">Agendado</option>
+                        <option value="Concluido">Concluído</option>
+                    </select>
+                    <label>Data de Agendamento</label>
+                    <input type="datetime-local" class="form-control" formControlName="dataAgendamento">
+
+                    <label class="mt-16">Feedback (opcional)</label>
+                    <textarea class="form-control" rows="3" formControlName="feedback"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Salvar
+                    </button>
+                    <button type="button" class="btn btn-outline" (click)="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</ng-container>

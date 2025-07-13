@@ -9,9 +9,12 @@ using Services;
 using Interfaces.Repositories;
 using Interfaces.Services;
 using Model;
+using Shared;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAutoMapper(typeof(UtilizadorProfile)); 
 
 builder.Services
     .AddScoped<IEmailRepository,       EmailRepository>()

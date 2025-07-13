@@ -1,15 +1,19 @@
 <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">+</div>
-                    <h1 class="logo-text"><a href="/home" class="logo-link">Clínica XPTO</a></h1>
-                </div>
-                <div class="user-info" id="userInfo">
-                    <div class="user-avatar">U</div>
-                    <span id="userName">Utilizador</span>
-                    <button class="btn-logout" onclick="logout()">Sair</button>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">+</div>
+        <h1 class="logo-text">
+          <a routerLink="/home" class="logo-link">Clínica XPTO</a>
+        </h1>
+      </div>
+
+      <div class="user-info" *ngIf="isLoggedIn()">
+        <div class="user-avatar">{{ nome?.[0] }}</div>
+        <span>{{ nome }}</span>
+        <button class="btn-logout" (click)="logout()">Sair</button>
+      </div>
+    </div>
+  </div>
 </header>
+

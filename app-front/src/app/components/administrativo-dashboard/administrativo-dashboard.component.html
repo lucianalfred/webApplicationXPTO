@@ -1,0 +1,45 @@
+<app-header></app-header>
+<app-administrativo-navigation></app-administrativo-navigation>
+
+
+<section class="section active container">
+
+  <div class="mb-24 text-center">
+    <h1>Painel do Administrativo</h1>
+    <p class="text-muted">Visão geral dos pedidos de marcação</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Resumo Geral</h2>
+    </div>
+
+    <div class="form-row">
+      <div class="form-col">
+        <div class="alert alert-primary text-center">
+          <h3>{{ total() }}</h3>
+          <p>Total de Pedidos</p>
+        </div>
+      </div>
+      <div class="form-col">
+        <div class="alert alert-warning text-center">
+          <h3>{{ emEspera() }}</h3>
+          <p>Em Espera</p>
+        </div>
+      </div>
+      <div class="form-col">
+        <div class="alert alert-info text-center">
+          <h3>{{ agendados() }}</h3>
+          <p>Agendados</p>
+        </div>
+      </div>
+      <div class="form-col">
+        <div class="alert alert-success text-center">
+          <h3>{{ concluidos() }}</h3>
+          <p>Concluídos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -174,7 +174,7 @@ export class PedidoAnonimoComponent {
     };
 
     ///
-    pdfMake.createPdf(docDefinition).open();
+   pdfMake.createPdf(docDefinition).download();
   }
   fecharModal() {
     this.modalAberto.set(false);

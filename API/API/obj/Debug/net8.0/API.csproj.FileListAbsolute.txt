@@ -364,6 +364,14 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/API/obj/Debug/net8.0/API.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/webApplication/API/API/obj/Debug/net8.0/ref/API.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.csproj.AssemblyReference.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.GeneratedMSBuildEditorConfig.editorconfig
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.AssemblyInfoInputs.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.AssemblyInfo.cs
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.csproj.CoreCompileInputs.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.MvcApplicationPartsAssemblyInfo.cs
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.MvcApplicationPartsAssemblyInfo.cache
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.sourcelink.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/appsettings.Development.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/appsettings.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/API
@@ -376,7 +384,10 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Azure.Core.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Azure.Identity.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/BCrypt.Net-Next.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Humanizer.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/MailKit.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
@@ -419,6 +430,7 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.OpenApi.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.SqlServer.Server.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/MimeKit.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Mono.TextTemplating.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -438,6 +450,7 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.IO.Pipelines.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Memory.Data.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Runtime.Caching.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Security.Cryptography.Pkcs.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Security.Permissions.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Text.Encodings.Web.dll
@@ -518,6 +531,7 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
@@ -533,14 +547,6 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Services.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Shared.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Model.pdb
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.csproj.AssemblyReference.cache
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.GeneratedMSBuildEditorConfig.editorconfig
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.AssemblyInfoInputs.cache
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.AssemblyInfo.cs
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.csproj.CoreCompileInputs.cache
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.MvcApplicationPartsAssemblyInfo.cs
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.MvcApplicationPartsAssemblyInfo.cache
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.sourcelink.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/staticwebassets.build.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/staticwebassets.development.json
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/staticwebassets/msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props
@@ -555,9 +561,3 @@
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.pdb
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/obj/Debug/net8.0/ref/API.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/MailKit.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/MimeKit.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/System.Security.Cryptography.Pkcs.dll
-/home/luciano-alfredo/Documentos/2-Projectos/8-AW/Projecto_final/API/API/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll
